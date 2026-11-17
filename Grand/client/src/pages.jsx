@@ -43,7 +43,7 @@ export function Home() {
       <p className="eyebrow rise">Luxury awaits in Lucknow</p>
       <h1 className="rise d1">Hotel & Banquet Hall</h1>
       <p className="rise d2">Where comfort meets celebration. Stay in refined rooms or host an unforgettable event.</p>
-      <div className="rise d3"><a href="tel:+910000000000" className="btn">Call Us</a> <Link to="/contact" className="btn ghost">Book Now</Link></div>
+      <div className="rise d3"><a href="tel:+919876543210" className="btn">Call Us</a> <Link to="/contact" className="btn ghost">Book Now</Link></div>
     </section>
     <section className="services">
       {[['Inhouse Restaurant', 'dining'], ['Banquet Hall', 'banquet-hall'], ['Makeup Studio', 'makeup-studio'], ['Rooftop Cafe', 'cafe']].map(([s, i], k) =>
