@@ -4,7 +4,7 @@ import Reveal, { Counter } from './Reveal.jsx';
 import Pic from './Pic.jsx';
 import {
   FACILITIES, EVENTS, ROOMS, STATS, QUOTES, FAQS, GALLERY, GALLERY_ALL, AMENITIES, MENU, PACKAGES,
-  CAPACITY, PROCESS, TIMELINE, VALUES, TEAM, NEARBY, POLICIES,
+  CAPACITY, PROCESS, TIMELINE, VALUES, TEAM, NEARBY, POLICIES,  SOCIAL,
 } from './data.js';
 
 const Banner = ({ eyebrow, title, img }) => (
@@ -19,6 +19,39 @@ const Stats = () => <section className="stats">{STATS.map(([n, s, l]) => <Reveal
 const GalleryGrid = ({ items = GALLERY }) => <div className="gallery">{items.map((g, i) => <Reveal key={g} delay={i * 80} className="gimg"><Pic name={g} /></Reveal>)}</div>;
 const Faq = ({ items = FAQS }) => <div className="faq">{items.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div>;
 const Cta = ({ title }) => <section className="cta"><Reveal><h2>{title}</h2><Link to="/contact" className="btn">Book an Appointment</Link></Reveal></section>;
+
+function Social() {
+  const [open, setOpen] = useState(null);
+  useEffect(() => {
+    if (!open) return;
+    const k = e => e.key === 'Escape' && setOpen(null);
+    addEventListener('keydown', k);
+    document.body.style.overflow = 'hidden';
+    return () => { removeEventListener('keydown', k); document.body.style.overflow = ''; };
+  }, [open]);
+  return (
+    <section className="wrap"><Head title="Our Latest Social Media Updates" text={`Follow ${SOCIAL.handle} for weddings, food, rooms and events.`} />
+      <div className="feed">{SOCIAL.posts.map((p, i) => (
+        <Reveal key={p.src} delay={(i % 4) * 80}>
+          <button className="tile" onClick={() => setOpen(p)} aria-label={p.cap || 'Open post'}>
+            {p.type === 'video' && !p.cover
+              ? <video className="pic" src={`${p.src}#t=0.1`} muted playsInline preload="metadata" />
+              : <img className="pic" src={p.cover || p.src} alt={p.cap || ''} loading="lazy" />}
+            {p.type === 'video' && <span className="play">▶</span>}
+          </button>
+        </Reveal>))}</div>
+      <Reveal><a className="btn" style={{ marginTop: 36 }} href={SOCIAL.url} target="_blank" rel="noreferrer">Follow on Instagram</a></Reveal>
+      {open && (
+        <div className="lb" onClick={() => setOpen(null)}>
+          <button className="x" aria-label="Close">×</button>
+          {open.type === 'video'
+            ? <video src={open.src} controls autoPlay playsInline onClick={e => e.stopPropagation()} />
+            : <img src={open.src} alt={open.cap || ''} onClick={e => e.stopPropagation()} />}
+          {open.cap && <p className="lb-cap">{open.cap}</p>}
+          {open.url && <a className="btn" href={open.url} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()}>View on Instagram</a>}
+        </div>)}
+    </section>);
+}
 
 const Amenities = ({ alt }) => (
   <section className={`wrap ${alt ? 'alt' : ''}`}><Head title="Amenities & Services" text="Small comforts that make a big difference to your stay and your event." />
@@ -77,6 +110,7 @@ export function Home() {
     <section className="wrap"><Head title="Guest Stories" text="Kind words from the people we have been lucky to host." />
       <div className="grid">{QUOTES.map(([q, a], i) => <Reveal key={a} delay={(i % 3) * 120}><blockquote className="quote">“{q}”<cite>{a}</cite></blockquote></Reveal>)}</div></section>
     <section className="wrap alt"><Head title="Gallery" /><GalleryGrid />
+    <Social />
       <Reveal><Link to="/gallery" className="btn" style={{ marginTop: 36 }}>View Full Gallery</Link></Reveal></section>
     <section className="wrap"><Head title="Explore the City" text="Lucknow is famous for its culture, cuisine and craft. We are happy to arrange cabs and local guides." />
       <div className="grid">{NEARBY.map(([t, d], i) => <Reveal key={t} delay={i * 100}><div className="card pad"><h3>{t}</h3><p>{d}</p></div></Reveal>)}</div></section>

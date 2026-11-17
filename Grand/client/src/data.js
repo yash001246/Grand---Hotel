@@ -181,3 +181,15 @@ export const GALLERY_ALL = [
   ['gallery-9', 'Dining'], ['gallery-10', 'Rooms'], ['gallery-11', 'Hotel'], ['gallery-12', 'Events'],
   ['banquet-hall', 'Events'], ['wedding-halls', 'Events'], ['dining', 'Dining'], ['cafe', 'Dining'],
 ];
+
+export const SOCIAL = {
+  handle: '@hotelemperiogrand',
+  url: 'https://www.instagram.com/hotelemperiogrand/',
+  posts: [
+    { type: 'video', src: '/Social/post-1.mp4', cover: '/Social/post-1.png', url: 'https://www.instagram.com/reels/DCqo9FQxJoE/', cap: '' },
+    { type: 'image', src: '/social/post-2.jpg', cover : '/social/post-2.jpg', url: 'https://www.instagram.com/p/DCjRaJVznHC/', cap: '' },
+    { type: 'video', src: '/social/post-3.mp4', cover: '/social/post-3.png', url: 'https://www.instagram.com/reel/DCGe0QGSEOF/?utm_source=ig_web_copy_link&lqvp=NTc4MTIwNjQ2YQ==' },
+    { type: 'image', src: '/social/post-4.jpg', cover: '/Social/post-4.jpg', url: 'https://www.instagram.com/p/DCD0hqaotLY/' },
+    // aur posts isi tarah add karo
+  ],
+};
