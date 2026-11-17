@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { NavLink, Link, Routes, Route, useLocation } from 'react-router-dom';
 import { Home, About, Facilities, Facility, Gallery, Contact } from './pages.jsx';
 import { FACILITIES } from './data.js';
+import useJelly from './useJelly.js';
 
 const P = { fill: 'none', stroke: 'currentColor', strokeWidth: 1.4, strokeLinecap: 'round', strokeLinejoin: 'round' };
 const ICONS = {
@@ -13,6 +14,7 @@ const ICONS = {
 };
 
 export default function App() {
+  useJelly();
   const [open, setOpen] = useState(false);
   const [solid, setSolid] = useState(false);
   const { pathname } = useLocation();
