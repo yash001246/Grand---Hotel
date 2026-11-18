@@ -72,7 +72,7 @@ const Process = ({ alt }) => (
 export function Home() {
   return (<>
     <section className="hero">
-      <div className="hero-bg"><Pic name="hero" alt="Hotel exterior" /></div>
+      <div className="hero-bg"><video className="pic" src="/social/post-1.mp4" autoPlay muted loop playsInline preload="auto" /></div>
       <p className="eyebrow rise">Luxury awaits in Lucknow</p>
       <h1 className="rise d1">Hotel & Banquet Hall</h1>
       <p className="rise d2">Where comfort meets celebration. Stay in refined rooms or host an unforgettable event.</p>
@@ -110,8 +110,8 @@ export function Home() {
     <section className="wrap"><Head title="Guest Stories" text="Kind words from the people we have been lucky to host." />
       <div className="grid">{QUOTES.map(([q, a], i) => <Reveal key={a} delay={(i % 3) * 120}><blockquote className="quote">“{q}”<cite>{a}</cite></blockquote></Reveal>)}</div></section>
     <section className="wrap alt"><Head title="Gallery" /><GalleryGrid />
-    <Social />
       <Reveal><Link to="/gallery" className="btn" style={{ marginTop: 36 }}>View Full Gallery</Link></Reveal></section>
+    <Social />
     <section className="wrap"><Head title="Explore the City" text="Lucknow is famous for its culture, cuisine and craft. We are happy to arrange cabs and local guides." />
       <div className="grid">{NEARBY.map(([t, d], i) => <Reveal key={t} delay={i * 100}><div className="card pad"><h3>{t}</h3><p>{d}</p></div></Reveal>)}</div></section>
     <section className="wrap alt"><Head title="Quick Answers" /><Reveal><Faq items={FAQS.slice(0, 4)} /></Reveal></section>

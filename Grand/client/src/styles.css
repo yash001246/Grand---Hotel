@@ -233,3 +233,4 @@ footer{background:#000;color:var(--mute);text-align:center;padding:36px;font-siz
   .book label{flex:1 1 45%;border-bottom:1px solid var(--line)}.book .btn{flex:1 1 100%;padding:16px}
 }
 @media(prefers-reduced-motion:reduce){.split .w>span{transform:none}.marquee>div{animation:none}}
+.hero-bg video.pic{animation:none}

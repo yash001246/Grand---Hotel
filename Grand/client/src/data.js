@@ -5,7 +5,7 @@
 //   3) /public/images/x.svg   <- built-in artwork, always works
 const U = (id) => `https://images.unsplash.com/${id}?auto=format&fit=crop&w=1400&q=70`;
 export const IMAGES = {
-  hero: U('photo-1566073771259-6a8506099945'),
+  hero: 'social/post-1.mp4',
   welcome: U('photo-1551882547-ff40c63fe5fa'),
   about: U('photo-1542314831-068cd1dbfeed'),
   'rooms-and-suites': U('photo-1631049307264-da0ec9d70304'),
